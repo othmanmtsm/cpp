@@ -10,21 +10,9 @@ using std::vector;
 using std::string;
 using std::istringstream;
 
-
-void PrintBoard(vector<vector<int>> b){
-    for(auto v : b){
-        for(int i : v){
-            cout << i;
-        }
-        cout << "\n";
-    }
-}
-
-
-vector<vector<int>> Parseline(string path){
+int main(){
     string a;
-    ifstream my_file;
-    my_file.open(path);
+    ifstream my_file("./files/1.board");
     vector <vector<int>> v;
     if (my_file)
     {
@@ -42,11 +30,14 @@ vector<vector<int>> Parseline(string path){
             v.push_back(test);
         }
     }
-    return v;
-}
-
-
-int main(){
-    vector<vector<int>> a {Parseline("./files/1.board")};
-    PrintBoard(a);
+    
+    for (auto i : v)
+    {
+        for (int j : i)
+        {
+            cout << j ;
+        }
+        cout << "\n";
+    }
+    
 }
