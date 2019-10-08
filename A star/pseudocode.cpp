@@ -22,3 +22,11 @@
 // Mark the cell as closed.
 // If you exit the while loop because the list of open nodes is empty, you have run out of new nodes to explore and haven't found a path.
 
+
+
+
+// CellSort() - sorts the open list according to the sum of h + g
+// ExpandNeighbors() - loops through the current node's neighbors and calls appropriate functions to add neighbors to the open list
+// CheckValidCell() - ensures that the potential neighbor coordinates are on the grid and that the cell is open
+// Heuristic() - computes the distance to the goal
+// AddToOpen() - adds the node to the open list and marks the grid cell as closed

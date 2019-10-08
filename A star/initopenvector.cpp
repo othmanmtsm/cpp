@@ -64,7 +64,20 @@ vector<vector<State>> Parseline(string path){
 
 // A STAR
 
+
+//the Manhattan Distance from one coordinate to the other: |x2-x1|+|y2-y1|
+int heuristic(int x1,int y1,int x2,int y2){
+    return abs(x2-x1) + abs(y2-y1);
+}
+
+void AddToOpen(int x,int y, int g,int h,vector<vector<int>> &o_nodes,vector<vector<State>> &grid){
+    vector<int> node{x,y,g,h};
+    o_nodes.push_back(node);
+    grid[x][y] = State::kClosed;
+}
+
 vector<vector<State>> Search(vector<vector<State>> Board, int init[], int goal[]){
+    
     vector<vector<int>> open{};
 
     int x{init[0]};
@@ -77,17 +90,6 @@ vector<vector<State>> Search(vector<vector<State>> Board, int init[], int goal[]
 
     cout << "No path found !!" << std::endl;
     return vector<vector<State>>{};
-}
-
-//the Manhattan Distance from one coordinate to the other: |x2-x1|+|y2-y1|
-int heuristic(int x1,int y1,int x2,int y2){
-    return abs(x2-x1) + abs(y2-y1);
-}
-
-void AddToOpen(int x,int y, int g,int h,vector<vector<int>> &o_nodes,vector<vector<State>> &grid){
-    vector<int> node{x,y,g,h};
-    o_nodes.push_back(node);
-    grid[x][y] = State::kClosed;
 }
 
 int main(){
